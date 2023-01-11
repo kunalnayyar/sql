@@ -52,4 +52,908 @@ Records: 83  Deleted: 0  Skipped: 0  Warnings: 1
 +-----+------------------+-------------+-------------------+------------+
 5 rows in set (0.00 sec)
 
+>select * from city where countrycode = 'USA' and population>100000;
++------+---------------+-------------+------------+------------+
+| ID   | NAME          | COUNTRYCODE | DISTRICT   | POPULATION |
++------+---------------+-------------+------------+------------+
+| 3815 | El Paso       | USA         | Texas      |     563662 |
+| 3878 | Scottsdale    | USA         | Arizona    |     202705 |
+| 3965 | Corona        | USA         | California |     124966 |
+| 3973 | Concord       | USA         | California |     121780 |
+| 3977 | Cedar Rapids  | USA         | Iowa       |     120758 |
+| 3982 | Coral Springs | USA         | Florida    |     117549 |
++------+---------------+-------------+------------+------------+
+6 rows in set (0.00 sec)
+
+> select name from city where countrycode = 'USA' and population>120000;
++--------------+
+| name         |
++--------------+
+| El Paso      |
+| Scottsdale   |
+| Corona       |
+| Concord      |
+| Cedar Rapids |
++--------------+
+5 rows in set (0.00 sec)
+
+>select * from city;
++------+-------------------+-------------+----------------------+------------+
+| ID   | NAME              | COUNTRYCODE | DISTRICT             | POPULATION |
++------+-------------------+-------------+----------------------+------------+
+|    6 | Rotterdam         | NLD         | Zuid-Holland         |          0 |
+|   19 | Zaanstad          | NLD         | Noord-Holland        |     135621 |
+|  214 | Porto Alegre      | BRA         | Rio Grande do Sul    |    1314032 |
+|  397 | Lauro de Freitas  | BRA         | Bahia                |     109236 |
+|  547 | Dobric            | BGR         | Varna                |     100399 |
+|  552 | Bujumbura         | BDI         | Bujumbura            |     300000 |
+|  554 | Santiago de Chile | CHL         | Santiago             |    4703954 |
+|  626 | al-Minya          | EGY         | al-Minya             |     201360 |
+|  646 | Santa Ana         | SLV         | Santa Ana            |     139389 |
+|  762 | Bahir             | Dar         | ETH Amhara           |      96140 |
+|  796 | Baguio            | PHL         | CAR                  |     252386 |
+|  896 | Malungon          | PHL         | Southern Mindanao    |      93232 |
+|  904 | Banjul            | GMB         | Banjul               |      42326 |
+|  924 | Villa             | Nueva       | GTM                  |     101295 |
+|  990 | Waru              | IDN         | East Java            |     124300 |
+| 1155 | Latur             | IND         | Maharashtra          |     197408 |
+| 1222 | Tenali            | IND         | Andhra Pradesh       |     143726 |
+| 1235 | Tirunelveli       | IND         | Tamil Nadu           |     135825 |
+| 1256 | Alandur           | IND         | Tamil Nadu           |     125244 |
+| 1279 | Neyveli           | IND         | Tamil Nadu           |     118080 |
+| 1293 | Pallavaram        | IND         | Tamil Nadu           |     111866 |
+| 1350 | Dehri             | IND         | Bihar                |      94526 |
+| 1383 | Tabriz            | IRN         | East Azerbaidzan     |    1191043 |
+| 1385 | Karaj             | IRN         | Teheran              |     940968 |
+| 1508 | Bolzano           | ITA         | Trentino-Alto Adige  |      97232 |
+| 1520 | Cesena            | ITA         | Emilia-Romagna       |      89852 |
+| 1613 | Neyagawa          | JPN         | Osaka                |     257315 |
+| 1630 | Ageo              | JPN         | Saitama              |     209442 |
+| 1661 | Sayama            | JPN         | Saitama              |     162472 |
+| 1681 | Omuta             | JPN         | Fukuoka              |     142889 |
+| 1739 | Tokuyama          | JPN         | Yamaguchi            |     107078 |
+| 1793 | Novi Sad          | YUG         | Vojvodina            |     179626 |
+| 1857 | Kelowna           | CAN         | British Colombia     |      89442 |
+| 1895 | Harbin            | CHN         | Heilongjiang         |    4289800 |
+| 1900 | Changchun         | CHN         | Jilin                |    2812000 |
+| 1913 | Lanzhou           | CHN         | Gansu                |    1565800 |
+| 1947 | Changzhou         | CHN         | Jiangsu              |     530000 |
+| 2070 | Dezhou            | CHN         | Shandong             |     195485 |
+| 2081 | Heze              | CHN         | Shandong             |     189293 |
+| 2111 | Chenzhou          | CHN         | Hunan                |     169400 |
+| 2153 | Xianning          | CHN         | Hubei                |     136811 |
+| 2192 | Lhasa             | CHN         | Tibet                |     120000 |
+| 2193 | Lianyuan          | CHN         | Hunan                |     118858 |
+| 2227 | Xingcheng         | CHN         | Liaoning             |     102384 |
+| 2273 | Villavicencio     | COL         | Meta                 |     273140 |
+| 2384 | Tong-yong         | KOR         | Kyongsangnam         |     131717 |
+| 2386 | Yongju            | KOR         | Kyongsangbuk         |     131097 |
+| 2387 | Chinhae           | KOR         | Kyongsangnam         |     125997 |
+| 2388 | Sangju            | KOR         | Kyongsangbuk         |     124116 |
+| 2406 | Herakleion        | GRC         | Crete                |     116178 |
+| 2440 | Monrovia          | LBR         | Montserrado          |     850000 |
+| 2462 | Lilongwe          | MWI         | Lilongwe             |     435964 |
+| 2505 | Taza              | MAR         | Taza-Al Hoceima-Taou |      92700 |
+| 2555 | Xalapa            | MEX         | Veracruz             |     390058 |
+| 2602 | Ocosingo          | MEX         | Chiapas              |     171495 |
+| 2609 | Nogales           | MEX         | Sonora               |     159103 |
+| 2670 | San Pedro Cholula | MEX         | Puebla               |      99734 |
+| 2689 | Palikir           | FSM         | Pohnpei              |       8600 |
+| 2706 | Tete              | MOZ         | Tete                 |     101984 |
+| 2716 | Sittwe (Akyab)    | MMR         | Rakhine              |     137600 |
+| 2922 | Carolina          | PRI         | Carolina             |     186076 |
+| 2967 | Grudziadz         | POL         | Kujawsko-Pomorskie   |     102434 |
+| 2972 | Malabo            | GNQ         | Bioko                |      40000 |
+| 3073 | Essen             | DEU         | Nordrhein-Westfalen  |     599515 |
+| 3169 | Apia              | WSM         | Upolu                |      35900 |
+| 3198 | Dakar             | SEN         | Cap-Vert             |     785071 |
+| 3253 | Hama              | SYR         | Hama                 |     343361 |
+| 3288 | Luchou            | TWN         | Taipei               |     160516 |
+| 3309 | Tanga             | TZA         | Tanga                |     137400 |
+| 3353 | Sousse            | TUN         | Sousse               |     145900 |
+| 3377 | Kahramanmaras     | TUR         | Kahramanmaras        |     245772 |
+| 3430 | Odesa             | UKR         | Odesa                |    1011000 |
+| 3581 | St Petersburg     | RUS         | Pietari              |    4694000 |
+| 3770 | Hanoi             | VNM         | Hanoi                |    1410000 |
+| 3815 | El Paso           | USA         | Texas                |     563662 |
+| 3878 | Scottsdale        | USA         | Arizona              |     202705 |
+| 3965 | Corona            | USA         | California           |     124966 |
+| 3973 | Concord           | USA         | California           |     121780 |
+| 3977 | Cedar Rapids      | USA         | Iowa                 |     120758 |
+| 3982 | Coral Springs     | USA         | Florida              |     117549 |
+| 4054 | Fairfield         | USA         | California           |      92256 |
+| 4058 | Boulder           | USA         | Colorado             |      91238 |
+| 4061 | Fall River        | USA         | Massachusetts        |      90555 |
++------+-------------------+-------------+----------------------+------------+
+83 rows in set (0.00 sec)
+
+> select * from city where id = 1661;
++------+--------+-------------+----------+------------+
+| ID   | NAME   | COUNTRYCODE | DISTRICT | POPULATION |
++------+--------+-------------+----------+------------+
+| 1661 | Sayama | JPN         | Saitama  |     162472 |
++------+--------+-------------+----------+------------+
+1 row in set (0.00 sec)
+
+>select * from city where countrycode = 'JPN';
++------+----------+-------------+-----------+------------+
+| ID   | NAME     | COUNTRYCODE | DISTRICT  | POPULATION |
++------+----------+-------------+-----------+------------+
+| 1613 | Neyagawa | JPN         | Osaka     |     257315 |
+| 1630 | Ageo     | JPN         | Saitama   |     209442 |
+| 1661 | Sayama   | JPN         | Saitama   |     162472 |
+| 1681 | Omuta    | JPN         | Fukuoka   |     142889 |
+| 1739 | Tokuyama | JPN         | Yamaguchi |     107078 |
++------+----------+-------------+-----------+------------+
+5 rows in set (0.00 sec)
+
+>select name from city where countrycode = 'JPN';
++----------+
+| name     |
++----------+
+| Neyagawa |
+| Ageo     |
+| Sayama   |
+| Omuta    |
+| Tokuyama |
++----------+
+5 rows in set (0.00 sec)
+
+>select distinct city,state from stationdata;
++--------------------+-------+
+| city               | state |
++--------------------+-------+
+| Kissee Mills       | MO    |
+| Loma Mar           | CA    |
+| Sandy Hook         | CT    |
+| Tipton             | IN    |
+| Arlington          | CO    |
+| Turner             | AR    |
+| Slidell            | LA    |
+| Negreet            | LA    |
+| Glencoe            | KY    |
+| Chelsea            | IA    |
+| Chignik Lagoon     | AK    |
+| Pelahatchie        | MS    |
+| Hanna City         | IL    |
+| Dorrance           | KS    |
+| Albany             | CA    |
+| Monument           | KS    |
+| Manchester         | MD    |
+| Prescott           | IA    |
+| Graettinger        | IA    |
+| Cahone             | CO    |
+| Sturgis            | MS    |
+| Upperco            | MD    |
+| Highwood           | IL    |
+| Waipahu            | HI    |
+| Bowdon             | GA    |
+| Tyler              | MN    |
+| Watkins            | CO    |
+| Republic           | MI    |
+| Millville          | CA    |
+| Aguanga            | CA    |
+| Bowdon Junction    | GA    |
+| Morenci            | AZ    |
+| South El Monte     | CA    |
+| Hoskinston         | KY    |
+| Talbert            | KY    |
+| Mccomb             | MS    |
+| Kirk               | CO    |
+| Carlock            | IL    |
+| Seward             | IL    |
+| Gustine            | CA    |
+| Delano             | CA    |
+| Westphalia         | MI    |
+| Saint Elmo         | AL    |
+| Roy                | MT    |
+| Pattonsburg        | MO    |
+| Centertown         | MO    |
+| Norvell            | MI    |
+| Raymondville       | MO    |
+| Beaver Island      | MI    |
+| Odin               | IL    |
+| Jemison            | AL    |
+| West Hills         | CA    |
+| Barrigada          | GU    |
+| Hesperia           | CA    |
+| Wickliffe          | KY    |
+| Culdesac           | ID    |
+| Roselawn           | IN    |
+| Forest Lakes       | AZ    |
+| San Simeon         | CA    |
+| Little Rock        | AR    |
+| Portland           | AR    |
+| New Century        | KS    |
+| Hampden            | MA    |
+| Pine City          | MN    |
+| Sandborn           | IN    |
+| Seaton             | IL    |
+| Milledgeville      | IL    |
+| East China         | MI    |
+| Prince Frederick   | MD    |
+| Pomona Park        | FL    |
+| Gretna             | LA    |
+| Yazoo City         | MS    |
+| Zionsville         | IN    |
+| Rio Oso            | CA    |
+| Jolon              | CA    |
+| Childs             | MD    |
+| Shreveport         | LA    |
+| Forest             | MS    |
+| Sizerock           | KY    |
+| Buffalo Creek      | CO    |
+| Algonac            | MI    |
+| Onaway             | MI    |
+| Irvington          | IL    |
+| Winsted            | MN    |
+| Woodbury           | GA    |
+| Samantha           | AL    |
+| Hackleburg         | AL    |
+| Soldier            | KS    |
+| Arrowsmith         | IL    |
+| Columbus           | GA    |
+| Bentonville        | AR    |
+| Kirkland           | AZ    |
+| Grosse Pointe      | MI    |
+| Wilton             | ME    |
+| Busby              | MT    |
+| Robertsdale        | AL    |
+| Dale               | IN    |
+| Reeds              | MO    |
+| Hayfork            | CA    |
+| Mcbrides           | MI    |
+| Lee Center         | IL    |
+| Tennessee          | IL    |
+| Henderson          | IA    |
+| Udall              | KS    |
+| Palm Desert        | CA    |
+| Benedict           | KS    |
+| Oakfield           | ME    |
+| Tamms              | IL    |
+| Haubstadt          | IN    |
+| Chokio             | MN    |
+| Clancy             | MT    |
+| Scotts Valley      | CA    |
+| Norwood            | MN    |
+| Elkton             | MD    |
+| Bertha             | MN    |
+| Bridgeport         | MI    |
+| Cherry             | IL    |
+| Regina             | KY    |
+| Griffin            | GA    |
+| Pine Bluff         | AR    |
+| Mascotte           | FL    |
+| Baldwin            | MD    |
+| Netawaka           | KS    |
+| East Irvine        | CA    |
+| Pony               | MT    |
+| Franklin           | LA    |
+| Amo                | IN    |
+| Vulcan             | MO    |
+| Prairie Du Rocher  | IL    |
+| Alanson            | MI    |
+| Delta              | LA    |
+| Carver             | MN    |
+| Paron              | AR    |
+| Winchester         | ID    |
+| Jerome             | AZ    |
+| Baton Rouge        | LA    |
+| Greenview          | CA    |
+| Lucerne Valley     | CA    |
+| Cromwell           | MN    |
+| Quinter            | KS    |
+| Whitewater         | MO    |
+| Round Pond         | ME    |
+| Clarkdale          | AZ    |
+| Rockton            | IL    |
+| Pheba              | MS    |
+| Eleele             | HI    |
+| Auburn             | IA    |
+| North Berwick      | ME    |
+| Oconee             | GA    |
+| Grandville         | MI    |
+| Susanville         | CA    |
+| Rosie              | AR    |
+| Verona             | MO    |
+| Richland           | GA    |
+| Fremont            | MI    |
+| Philipsburg        | MT    |
+| Kensett            | IA    |
+| De Tour Village    | MI    |
+| Koleen             | IN    |
+| Winslow            | IL    |
+| Reasnor            | IA    |
+| West Grove         | IA    |
+| Frankfort Heights  | IL    |
+| Bono               | AR    |
+| Biggsville         | IL    |
+| Linthicum Heights  | MD    |
+| Amazonia           | MO    |
+| Marysville         | MI    |
+| Cape Girardeau     | MO    |
+| Pengilly           | MN    |
+| Newton Center      | MA    |
+| Crane Lake         | MN    |
+| Newbury            | MA    |
+| Kismet             | KS    |
+| Canton             | ME    |
+| Clipper Mills      | CA    |
+| Grayslake          | IL    |
+| Pierre Part        | LA    |
+| Bison              | KS    |
+| Bellevue           | KY    |
+| Ridgway            | CO    |
+| South Britain      | CT    |
+| Rydal              | GA    |
+| Lynnville          | KY    |
+| Deerfield          | MO    |
+| Montreal           | MO    |
+| Hope               | MN    |
+| Aliso Viejo        | CA    |
+| Gowrie             | IA    |
+| Andersonville      | GA    |
+| Knob Lick          | KY    |
+| Crouseville        | ME    |
+| Cranks             | KY    |
+| Rives Junction     | MI    |
+| Ledyard            | CT    |
+| Norway             | ME    |
+| Eros               | LA    |
+| Rantoul            | KS    |
+| Richmond Hill      | GA    |
+| Fredericktown      | MO    |
+| Arkadelphia        | AR    |
+| Glen Carbon        | IL    |
+| Fredericksburg     | IN    |
+| Manchester         | IA    |
+| Mc Henry           | MD    |
+| Eriline            | KY    |
+| Wellington         | KY    |
+| Hoffman Estates    | IL    |
+| Howard Lake        | MN    |
+| Edgewater          | MD    |
+| Ducor              | CA    |
+| Salem              | KY    |
+| Sturdivant         | MO    |
+| Hagatna            | GU    |
+| East Haddam        | CT    |
+| Eastlake           | MI    |
+| Larkspur           | CA    |
+| Patriot            | IN    |
+| Corriganville      | MD    |
+| Carlos             | MN    |
+| Addison            | MI    |
+| Tarzana            | CA    |
+| Grapevine          | AR    |
+| Kanorado           | KS    |
+| Climax             | MI    |
+| Curdsville         | KY    |
+| Southport          | CT    |
+| Compton            | IL    |
+| Notasulga          | AL    |
+| Rumsey             | KY    |
+| Rogers             | CT    |
+| Pleasant Grove     | AR    |
+| Everton            | MO    |
+| Skanee             | MI    |
+| Springerville      | AZ    |
+| Libertytown        | MD    |
+| Church Creek       | MD    |
+| Yellow Pine        | ID    |
+| Dumont             | MN    |
+| Gales Ferry        | CT    |
+| Ravenna            | KY    |
+| Williams           | AZ    |
+| Decatur            | MI    |
+| Holbrook           | AZ    |
+| Sherrill           | AR    |
+| Brownsdale         | MN    |
+| Linden             | MI    |
+| Sedgwick           | AR    |
+| Fort Atkinson      | IA    |
+| Peachtree City     | GA    |
+| Rocheport          | MO    |
+| West Somerset      | KY    |
+| Clovis             | CA    |
+| Heyburn            | ID    |
+| Peabody            | KS    |
+| Marion Junction    | AL    |
+| Randall            | KS    |
+| Hayesville         | IA    |
+| Jordan             | MN    |
+| White Horse  Beach | MA    |
+| Greenville         | IL    |
+| Macy               | IN    |
+| Flowood            | MS    |
+| Deep River         | IA    |
+| Napoleon           | IN    |
+| Leavenworth        | IN    |
+| Coldwater          | KS    |
+| Weldon             | CA    |
+| Yellville          | AR    |
+| Turners Falls      | MA    |
+| Delray Beach       | FL    |
+| Eustis             | FL    |
+| Mineral Point      | MO    |
+| Weldona            | CO    |
+| Midpines           | CA    |
+| Cascade            | ID    |
+| Tefft              | IN    |
+| Showell            | MD    |
+| Bayville           | ME    |
+| Brighton           | IL    |
+| Grimes             | IA    |
+| Nubieber           | CA    |
+| North Monmouth     | ME    |
+| Harmony            | MN    |
+| Beaufort           | MO    |
+| Arispe             | IA    |
+| Union Star         | MO    |
+| Humeston           | IA    |
+| Baileyville        | IL    |
+| Lakeville          | CT    |
+| Firebrick          | KY    |
+| Pico Rivera        | CA    |
+| Ludington          | MI    |
+| Channing           | MI    |
+| West Baden Springs | IN    |
+| Pawnee             | IL    |
+| Melber             | KY    |
+| Manchester         | MN    |
+| Bainbridge         | GA    |
+| Sanders            | AZ    |
+| Ottertail          | MN    |
+| Dupo               | IL    |
+| Montrose           | CA    |
+| Schleswig          | IA    |
+| Harbor Springs     | MI    |
+| Richmond           | IL    |
+| Ermine             | KY    |
+| Siler              | KY    |
+| Reeves             | LA    |
+| Clifton            | AZ    |
+| Casco              | MI    |
+| Sturgis            | MI    |
+| Crescent City      | FL    |
+| Madisonville       | LA    |
+| Albion             | IN    |
+| Lismore            | MN    |
+| Athens             | IN    |
+| Eufaula            | AL    |
+| Panther Burn       | MS    |
+| Hanscom Afb        | MA    |
+| Wildie             | KY    |
+| Mosca              | CO    |
+| Bennington         | IN    |
+| Lottie             | LA    |
+| Garland            | ME    |
+| Clutier            | IA    |
+| Lupton             | MI    |
+| Northfield         | MN    |
+| Daleville          | AL    |
+| Osage City         | KS    |
+| Cuba               | MO    |
+| Norris             | MT    |
+| Clopton            | AL    |
+| Renville           | MN    |
+| Saint Paul         | KS    |
+| Kirksville         | MO    |
+| Kingsland          | AR    |
+| Fairview           | KS    |
+| Lydia              | LA    |
+| Bridgton           | ME    |
+| Brownstown         | IL    |
+| Monona             | IA    |
+| Hartland           | MI    |
+| Andover            | CT    |
+| Lakota             | IA    |
+| Grand Terrace      | CA    |
+| Mesick             | MI    |
+| Dryden             | MI    |
+| Beverly            | KY    |
+| Pocahontas         | IL    |
+| Fort Meade         | FL    |
+| Hayneville         | AL    |
+| Yoder              | IN    |
+| Gatewood           | MO    |
+| Madden             | MS    |
+| Losantville        | IN    |
+| Cheswold           | DE    |
+| Caseville          | MI    |
+| Pomona             | MO    |
+| Hopkinsville       | KY    |
+| Jack               | AL    |
+| Dixie              | GA    |
+| Hillside           | CO    |
+| Hawarden           | IA    |
+| Cannonsburg        | MI    |
+| Osborne            | KS    |
+| Elm Grove          | LA    |
+| Atlantic Mine      | MI    |
+| North Branford     | CT    |
+| New Liberty        | IA    |
+| Woodstock Valley   | CT    |
+| Farmington         | IL    |
+| Honolulu           | HI    |
+| Pfeifer            | KS    |
+| Oshtemo            | MI    |
+| Gridley            | KS    |
+| Fulton             | KY    |
+| Winter Park        | FL    |
+| Monroe             | LA    |
+| Del Mar            | CA    |
+| Greens Fork        | IN    |
+| Garden City        | AL    |
+| Blue River         | KY    |
+| New Ross           | IN    |
+| Brilliant          | AL    |
+| Archie             | MO    |
+| Winslow            | AR    |
+| Olmitz             | KS    |
+| Allerton           | IA    |
+| Norphlet           | AR    |
+| Mechanic Falls     | ME    |
+| North Middletown   | KY    |
+| Keyes              | CA    |
+| Equality           | AL    |
+| Neon               | KY    |
+| Calhoun            | KY    |
+| Alpine             | AR    |
+| Mullan             | ID    |
+| Coalgood           | KY    |
+| Walnut             | MS    |
+| Saint Petersburg   | FL    |
+| Ojai               | CA    |
+| Julian             | CA    |
+| Veedersburg        | IN    |
+| Orange Park        | FL    |
+| Payson             | AZ    |
+| Windom             | KS    |
+| Urbana             | IA    |
+| Ludlow             | CA    |
+| Lindsay            | MT    |
+| Palatka            | FL    |
+| Bristol            | ME    |
+| Harmony            | IN    |
+| Ukiah              | CA    |
+| Yuma               | AZ    |
+| Alba               | MI    |
+| Zachary            | LA    |
+| Esmond             | IL    |
+| Waresboro          | GA    |
+| Hills              | MN    |
+| Montgomery City    | MO    |
+| Delavan            | MN    |
+| Magnolia           | MS    |
+| Byron              | CA    |
+| Dundee             | IA    |
+| Eureka Springs     | AR    |
+| Baker              | CA    |
+| Hyde Park          | MA    |
+| Groveoak           | AL    |
+| Kenner             | LA    |
+| Many               | LA    |
+| Seward             | AK    |
+| Berryton           | KS    |
+| Chilhowee          | MO    |
+| Newark             | IL    |
+| Cowgill            | MO    |
+| Novinger           | MO    |
+| Goodman            | MS    |
+| Cobalt             | CT    |
+| South Haven        | MI    |
+| Eskridge           | KS    |
+| Bennington         | KS    |
+| Decatur            | MS    |
+| West Hyannisport   | MA    |
+| Ozona              | FL    |
+| Jackson            | AL    |
+| Lapeer             | MI    |
+| Peaks Island       | ME    |
+| Hazlehurst         | MS    |
+| Chester            | CA    |
+| Clarkston          | MI    |
+| Healdsburg         | CA    |
+| Hotchkiss          | CO    |
+| Ravenden Springs   | AR    |
+| Monroe             | AR    |
+| Payson             | IL    |
+| Kell               | IL    |
+| Strasburg          | CO    |
+| Five Points        | AL    |
+| Norris City        | IL    |
+| Coaling            | AL    |
+| Orange City        | IA    |
+| Effingham          | KS    |
+| Corcoran           | CA    |
+| Garden City        | IA    |
+| Alton              | MO    |
+| Greenway           | AR    |
+| Woodsboro          | MD    |
+| Strawn             | IL    |
+| Dent               | MN    |
+| Shingletown        | CA    |
+| Clio               | IA    |
+| Yalaha             | FL    |
+| Leakesville        | MS    |
+| Fort Lupton        | CO    |
+| Shasta             | CA    |
+| Canton             | MN    |
+| Agency             | MO    |
+| South Carrollton   | KY    |
+| Taft               | CA    |
+| Calpine            | CA    |
+| Knobel             | AR    |
+| Bullhead City      | AZ    |
+| Tina               | MO    |
+| Anthony            | KS    |
+| Emmett             | ID    |
+| South Haven        | MN    |
+| Haverhill          | IA    |
+| Middleboro         | MA    |
+| Siloam             | GA    |
+| Lena               | LA    |
+| Lee                | IL    |
+| Freeport           | MI    |
+| Mid Florida        | FL    |
+| Acme               | LA    |
+| Gorham             | KS    |
+| Bass Harbor        | ME    |
+| Granger            | IA    |
++--------------------+-------+
+498 rows in set (0.00 sec)
+
+>select id,city from stationdata where id % 2 = 0 order by id;
++------+--------------------+
+| id   | city               |
++------+--------------------+
+|    4 | South Britain      |
+|   14 | Forest             |
+|   16 | Beaufort           |
+|   26 | Church Creek       |
+|   34 | Mcbrides           |
+|   44 | Kismet             |
+|   62 | Monroe             |
+|   70 | Norphlet           |
+|   76 | Pico Rivera        |
+|   80 | Bridgton           |
+|   82 | Many               |
+|   84 | Cobalt             |
+|   88 | Eros               |
+|   92 | Watkins            |
+|   96 | Raymondville       |
+|   98 | Hackleburg         |
+|  100 | North Monmouth     |
+|  102 | Kirksville         |
+|  104 | Yalaha             |
+|  106 | Yuma               |
+|  108 | North Berwick      |
+|  110 | Mesick             |
+|  116 | Mc Henry           |
+|  122 | Robertsdale        |
+|  124 | Pine City          |
+|  130 | Hayneville         |
+|  136 | Bass Harbor        |
+|  144 | Eskridge           |
+|  154 | Baker              |
+|  156 | Heyburn            |
+|  160 | Grosse Pointe      |
+|  162 | Montgomery City    |
+|  166 | Mccomb             |
+|  172 | Atlantic Mine      |
+|  174 | Onaway             |
+|  176 | Grapevine          |
+|  180 | Napoleon           |
+|  182 | Winter Park        |
+|  188 | Prairie Du Rocher  |
+|  190 | Oconee             |
+|  196 | Compton            |
+|  200 | Franklin           |
+|  202 | Hope               |
+|  204 | Alba               |
+|  208 | Lottie             |
+|  218 | Round Pond         |
+|  224 | West Hyannisport   |
+|  226 | Decatur            |
+|  228 | Rydal              |
+|  232 | Grandville         |
+|  234 | Rogers             |
+|  240 | Saint Paul         |
+|  242 | Macy               |
+|  246 | Ludington          |
+|  250 | Hampden            |
+|  252 | Childs             |
+|  260 | Sizerock           |
+|  266 | Cahone             |
+|  270 | Shingletown        |
+|  278 | Cromwell           |
+|  286 | Five Points        |
+|  288 | Daleville          |
+|  294 | Orange Park        |
+|  302 | Saint Petersburg   |
+|  306 | Bainbridge         |
+|  312 | Bentonville        |
+|  322 | White Horse  Beach |
+|  324 | Norwood            |
+|  326 | Rocheport          |
+|  328 | Monroe             |
+|  332 | Elm Grove          |
+|  336 | Dumont             |
+|  342 | Chignik Lagoon     |
+|  344 | Zachary            |
+|  350 | Cannonsburg        |
+|  352 | Clutier            |
+|  354 | Larkspur           |
+|  356 | Ludlow             |
+|  362 | Magnolia           |
+|  364 | Howard Lake        |
+|  366 | Norvell            |
+|  370 | Palm Desert        |
+|  376 | Gorham             |
+|  378 | Clio               |
+|  380 | Crane Lake         |
+|  382 | Leavenworth        |
+|  384 | Amo                |
+|  392 | Delano             |
+|  394 | Centertown         |
+|  396 | Dryden             |
+|  400 | New Ross           |
+|  404 | Farmington         |
+|  406 | Carver             |
+|  410 | Calhoun            |
+|  414 | Manchester         |
+|  420 | Frankfort Heights  |
+|  426 | Millville          |
+|  428 | Randall            |
+|  430 | Rumsey             |
+|  436 | West Hills         |
+|  438 | Bowdon             |
+|  440 | Grand Terrace      |
+|  442 | Elkton             |
+|  444 | Richland           |
+|  446 | Mid Florida        |
+|  448 | Canton             |
+|  460 | Leakesville        |
+|  464 | Gales Ferry        |
+|  470 | Healdsburg         |
+|  474 | Grayslake          |
+|  476 | Julian             |
+|  478 | Tipton             |
+|  482 | Jolon              |
+|  486 | Delta              |
+|  492 | Regina             |
+|  494 | Palatka            |
+|  498 | Glen Carbon        |
+|  502 | Bellevue           |
+|  504 | Melber             |
+|  506 | Firebrick          |
+|  510 | Eastlake           |
+|  512 | Garland            |
+|  518 | Vulcan             |
+|  520 | Delray Beach       |
+|  522 | Harmony            |
+|  524 | Montrose           |
+|  526 | Tarzana            |
+|  528 | Crouseville        |
+|  536 | Henderson          |
+|  538 | Cheswold           |
+|  540 | Mosca              |
+|  554 | Brownsdale         |
+|  560 | Osage City         |
+|  570 | Greenview          |
+|  572 | Athens             |
+|  582 | Curdsville         |
+|  586 | Ottertail          |
+|  588 | Glencoe            |
+|  596 | Brownstown         |
+|  598 | Middleboro         |
+|  600 | Shreveport         |
+|  604 | Forest Lakes       |
+|  606 | Morenci            |
+|  608 | Busby              |
+|  610 | Archie             |
+|  612 | Sturdivant         |
+|  614 | Benedict           |
+|  624 | Knobel             |
+|  630 | Prince Frederick   |
+|  636 | Ukiah              |
+|  638 | Clovis             |
+|  640 | Walnut             |
+|  642 | Lynnville          |
+|  644 | Seward             |
+|  646 | Greens Fork        |
+|  650 | Clancy             |
+|  654 | Lee                |
+|  656 | Pattonsburg        |
+|  662 | Skanee             |
+|  666 | West Baden Springs |
+|  668 | Rockton            |
+|  672 | Lismore            |
+|  678 | Bennington         |
+|  682 | Pheba              |
+|  684 | Mineral Point      |
+|  690 | Ravenden Springs   |
+|  692 | Yellow Pine        |
+|  694 | Ozona              |
+|  696 | Chilhowee          |
+|  698 | Albany             |
+|  700 | Pleasant Grove     |
+|  702 | Everton            |
+|  704 | Climax             |
+|  706 | Little Rock        |
+|  710 | Turners Falls      |
+|  712 | Dundee             |
+|  716 | Schleswig          |
+|  718 | Taft               |
+|  722 | Marion Junction    |
+|  728 | Roy                |
+|  738 | Philipsburg        |
+|  740 | Siler              |
+|  746 | Orange City        |
+|  750 | Neon               |
+|  752 | East Irvine        |
+|  754 | South Haven        |
+|  756 | Garden City        |
+|  766 | Gustine            |
+|  774 | Manchester         |
+|  778 | Pine Bluff         |
+|  780 | Cherry             |
+|  784 | Biggsville         |
+|  794 | Kissee Mills       |
+|  804 | Fort Lupton        |
+|  814 | Wickliffe          |
+|  820 | Chokio             |
+|  824 | Loma Mar           |
+|  826 | Norris             |
+|  830 | Greenway           |
+|  834 | Bayville           |
+|  836 | Kenner             |
+|  838 | Strasburg          |
+|  842 | Decatur            |
+|  844 | Aguanga            |
+|  854 | Kirkland           |
+|  866 | Haverhill          |
+|  868 | Sherrill           |
+|  878 | Rantoul            |
+|  884 | Southport          |
+|  886 | Pony               |
+|  888 | Bono               |
+|  890 | Eufaula            |
+|  892 | Effingham          |
+|  896 | Yazoo City         |
+|  904 | Ermine             |
+|  906 | Hayfork            |
+|  908 | Bullhead City      |
+|  910 | Salem              |
+|  914 | Hanscom Afb        |
+|  920 | Eustis             |
+|  922 | Kell               |
+|  928 | Coaling            |
+|  938 | Andersonville      |
+|  940 | Paron              |
+|  944 | Ledyard            |
+|  946 | Newton Center      |
+|  948 | Lupton             |
+|  950 | Peachtree City     |
+|  960 | Deep River         |
+|  968 | Norris City        |
+|  970 | East Haddam        |
+|  982 | Holbrook           |
+|  988 | Mullan             |
+|  990 | Bison              |
+|  994 | Kanorado           |
+|  996 | Keyes              |
+|  998 | Oakfield           |
++------+--------------------+
+237 rows in set (0.00 sec)
+
+>select count(city) - count(distinct city) from stationdata;
++------------------------------------+
+| count(city) - count(distinct city) |
++------------------------------------+
+|                                 13 |
++------------------------------------+
+1 row in set (0.00 sec)
+
 >
