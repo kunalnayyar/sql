@@ -1,2 +1,55 @@
 # KUNAL NAYYAR
 # EMAIL-ID: kunalnayyar20@gmail.com
+
+>create database assignment;
+#access connection to database using command line
+mysql --local-infile=1 -h localhost -u root -proot
+
+>SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| assignment         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+>create table if not exists city(ID int primary key not null, NAME varchar(17),COUNTRYCODE VARCHAR(5),DISTRICT VARCHAR(20),POPULATION int );
+>describe city;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| ID          | int         | NO   | PRI | NULL    |       |
+| NAME        | varchar(17) | YES  |     | NULL    |       |
+| COUNTRYCODE | varchar(5)  | YES  |     | NULL    |       |
+| DISTRICT    | varchar(20) | YES  |     | NULL    |       |
+| POPULATION  | int         | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+>LOAD DATA LOCAL INFILE 'C:/Users/kunal/Downloads/CityNew.csv' INTO TABLE CITY 
+FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' 
+IGNORE 1 ROWS 
+(@vid,@vname,@vcountrycode,@vdistrict,@vpopulation) 
+SET ID= @vid,NAME= NULLIF(@vname,''),COUNTRYCODE=NULLIF(@vcountrycode,''),DISTRICT=NULLIF(@vdistrict,''),POPULATION=NULLIF(@vpopulation,'');
+Query OK, 83 rows affected, 1 warning (0.00 sec)
+Records: 83  Deleted: 0  Skipped: 0  Warnings: 1
+
+> select * from city limit 5;
++-----+------------------+-------------+-------------------+------------+
+| ID  | NAME             | COUNTRYCODE | DISTRICT          | POPULATION |
++-----+------------------+-------------+-------------------+------------+
+|   6 | Rotterdam        | NLD         | Zuid-Holland      |          0 |
+|  19 | Zaanstad         | NLD         | Noord-Holland     |     135621 |
+| 214 | Porto Alegre     | BRA         | Rio Grande do Sul |    1314032 |
+| 397 | Lauro de Freitas | BRA         | Bahia             |     109236 |
+| 547 | Dobric           | BGR         | Varna             |     100399 |
++-----+------------------+-------------+-------------------+------------+
+5 rows in set (0.00 sec)
+
+>
