@@ -965,7 +965,7 @@ Records: 83  Deleted: 0  Skipped: 0  Warnings: 1
 +--------------------+--------------+
 2 rows in set (0.00 sec)
 
-> select distinct city from stationdata where city regexp '^[a|e|i|o|u]' order by city asc;
+> select distinct city from stationdata where city regexp '^[aeiou]' order by city asc;
 +----------------+
 | city           |
 +----------------+
@@ -1037,7 +1037,7 @@ Records: 83  Deleted: 0  Skipped: 0  Warnings: 1
 +----------------+
 65 rows in set (0.00 sec)
 
->select distinct city from stationdata where city regexp '[a|e|i|o|u]$' order by city asc;
+>select distinct city from stationdata where city regexp '[aeiou]$' order by city asc;
 +-----------------+
 | city            |
 +-----------------+
@@ -1194,7 +1194,7 @@ Records: 83  Deleted: 0  Skipped: 0  Warnings: 1
 +-----------------+
 150 rows in set (0.00 sec)
 
->select distinct city from stationdata where city regexp '^[^a|e|i|o|u]' order by city asc;
+>select distinct city from stationdata where city regexp '^[^aeiou]' order by city asc;
 +--------------------+
 | city               |
 +--------------------+
@@ -1621,7 +1621,7 @@ Records: 83  Deleted: 0  Skipped: 0  Warnings: 1
 +--------------------+
 420 rows in set (0.00 sec)
 
-> select distinct city from stationdata where city regexp '[^a|e|i|o|u]$' order by city asc;
+> select distinct city from stationdata where city regexp '[^aeiou]$' order by city asc;
 +--------------------+
 | city               |
 +--------------------+
@@ -1963,4 +1963,822 @@ Records: 83  Deleted: 0  Skipped: 0  Warnings: 1
 +--------------------+
 335 rows in set (0.00 sec)
 
+>select distinct city from stationdata where city regexp '^[^aeiou]' or city regexp '[^aeiou]$' order by city asc;
++--------------------+
+| city               |
++--------------------+
+| Addison            |
+| Agency             |
+| Alanson            |
+| Albany             |
+| Albion             |
+| Algonac            |
+| Allerton           |
+| Alton              |
+| Andover            |
+| Anthony            |
+| Arlington          |
+| Arrowsmith         |
+| Athens             |
+| Auburn             |
+| Baileyville        |
+| Bainbridge         |
+| Baker              |
+| Baldwin            |
+| Barrigada          |
+| Bass Harbor        |
+| Baton Rouge        |
+| Bayville           |
+| Beaufort           |
+| Beaver Island      |
+| Bellevue           |
+| Benedict           |
+| Bennington         |
+| Bentonville        |
+| Berryton           |
+| Bertha             |
+| Beverly            |
+| Biggsville         |
+| Bison              |
+| Blue River         |
+| Bono               |
+| Bowdon             |
+| Bowdon Junction    |
+| Bridgeport         |
+| Bridgton           |
+| Brighton           |
+| Brilliant          |
+| Bristol            |
+| Brownsdale         |
+| Brownstown         |
+| Buffalo Creek      |
+| Bullhead City      |
+| Busby              |
+| Byron              |
+| Cahone             |
+| Calhoun            |
+| Calpine            |
+| Cannonsburg        |
+| Canton             |
+| Cape Girardeau     |
+| Carlock            |
+| Carlos             |
+| Carver             |
+| Cascade            |
+| Casco              |
+| Caseville          |
+| Centertown         |
+| Channing           |
+| Chelsea            |
+| Cherry             |
+| Chester            |
+| Cheswold           |
+| Chignik Lagoon     |
+| Childs             |
+| Chilhowee          |
+| Chokio             |
+| Church Creek       |
+| Clancy             |
+| Clarkdale          |
+| Clarkston          |
+| Clifton            |
+| Climax             |
+| Clio               |
+| Clipper Mills      |
+| Clopton            |
+| Clovis             |
+| Clutier            |
+| Coalgood           |
+| Coaling            |
+| Cobalt             |
+| Coldwater          |
+| Columbus           |
+| Compton            |
+| Corcoran           |
+| Corriganville      |
+| Cowgill            |
+| Crane Lake         |
+| Cranks             |
+| Crescent City      |
+| Cromwell           |
+| Crouseville        |
+| Cuba               |
+| Culdesac           |
+| Curdsville         |
+| Dale               |
+| Daleville          |
+| De Tour Village    |
+| Decatur            |
+| Deep River         |
+| Deerfield          |
+| Del Mar            |
+| Delano             |
+| Delavan            |
+| Delray Beach       |
+| Delta              |
+| Dent               |
+| Dixie              |
+| Dorrance           |
+| Dryden             |
+| Ducor              |
+| Dumont             |
+| Dundee             |
+| Dupo               |
+| East Haddam        |
+| Edgewater          |
+| Effingham          |
+| Elkton             |
+| Emmett             |
+| Equality           |
+| Eros               |
+| Esmond             |
+| Eureka Springs     |
+| Eustis             |
+| Everton            |
+| Fairview           |
+| Farmington         |
+| Firebrick          |
+| Five Points        |
+| Flowood            |
+| Forest             |
+| Forest Lakes       |
+| Fort Atkinson      |
+| Fort Lupton        |
+| Fort Meade         |
+| Frankfort Heights  |
+| Franklin           |
+| Fredericksburg     |
+| Fredericktown      |
+| Freeport           |
+| Fremont            |
+| Fulton             |
+| Gales Ferry        |
+| Garden City        |
+| Garland            |
+| Gatewood           |
+| Glen Carbon        |
+| Glencoe            |
+| Goodman            |
+| Gorham             |
+| Gowrie             |
+| Graettinger        |
+| Grand Terrace      |
+| Grandville         |
+| Granger            |
+| Grapevine          |
+| Grayslake          |
+| Greens Fork        |
+| Greenview          |
+| Greenville         |
+| Greenway           |
+| Gretna             |
+| Gridley            |
+| Griffin            |
+| Grimes             |
+| Grosse Pointe      |
+| Groveoak           |
+| Gustine            |
+| Hackleburg         |
+| Hagatna            |
+| Hampden            |
+| Hanna City         |
+| Hanscom Afb        |
+| Harbor Springs     |
+| Harmony            |
+| Hartland           |
+| Haubstadt          |
+| Haverhill          |
+| Hawarden           |
+| Hayesville         |
+| Hayfork            |
+| Hayneville         |
+| Hazlehurst         |
+| Healdsburg         |
+| Henderson          |
+| Hesperia           |
+| Heyburn            |
+| Highwood           |
+| Hills              |
+| Hillside           |
+| Hoffman Estates    |
+| Holbrook           |
+| Honolulu           |
+| Hope               |
+| Hopkinsville       |
+| Hoskinston         |
+| Hotchkiss          |
+| Howard Lake        |
+| Humeston           |
+| Hyde Park          |
+| Irvington          |
+| Jack               |
+| Jackson            |
+| Jemison            |
+| Jerome             |
+| Jolon              |
+| Jordan             |
+| Julian             |
+| Kanorado           |
+| Kell               |
+| Kenner             |
+| Kensett            |
+| Keyes              |
+| Kingsland          |
+| Kirk               |
+| Kirkland           |
+| Kirksville         |
+| Kismet             |
+| Kissee Mills       |
+| Knob Lick          |
+| Knobel             |
+| Koleen             |
+| Lakeville          |
+| Lakota             |
+| Lapeer             |
+| Larkspur           |
+| Leakesville        |
+| Leavenworth        |
+| Ledyard            |
+| Lee                |
+| Lee Center         |
+| Lena               |
+| Libertytown        |
+| Linden             |
+| Lindsay            |
+| Linthicum Heights  |
+| Lismore            |
+| Little Rock        |
+| Loma Mar           |
+| Losantville        |
+| Lottie             |
+| Lucerne Valley     |
+| Ludington          |
+| Ludlow             |
+| Lupton             |
+| Lydia              |
+| Lynnville          |
+| Macy               |
+| Madden             |
+| Madisonville       |
+| Magnolia           |
+| Manchester         |
+| Many               |
+| Marion Junction    |
+| Marysville         |
+| Mascotte           |
+| Mc Henry           |
+| Mcbrides           |
+| Mccomb             |
+| Mechanic Falls     |
+| Melber             |
+| Mesick             |
+| Mid Florida        |
+| Middleboro         |
+| Midpines           |
+| Milledgeville      |
+| Millville          |
+| Mineral Point      |
+| Monona             |
+| Monroe             |
+| Montgomery City    |
+| Montreal           |
+| Montrose           |
+| Monument           |
+| Morenci            |
+| Mosca              |
+| Mullan             |
+| Napoleon           |
+| Negreet            |
+| Neon               |
+| Netawaka           |
+| New Century        |
+| New Liberty        |
+| New Ross           |
+| Newark             |
+| Newbury            |
+| Newton Center      |
+| Norphlet           |
+| Norris             |
+| Norris City        |
+| North Berwick      |
+| North Branford     |
+| North Middletown   |
+| North Monmouth     |
+| Northfield         |
+| Norvell            |
+| Norway             |
+| Norwood            |
+| Notasulga          |
+| Novinger           |
+| Nubieber           |
+| Oakfield           |
+| Odin               |
+| Olmitz             |
+| Onaway             |
+| Orange City        |
+| Orange Park        |
+| Osage City         |
+| Ottertail          |
+| Palatka            |
+| Palm Desert        |
+| Panther Burn       |
+| Paron              |
+| Patriot            |
+| Pattonsburg        |
+| Pawnee             |
+| Payson             |
+| Peabody            |
+| Peachtree City     |
+| Peaks Island       |
+| Pelahatchie        |
+| Pengilly           |
+| Pfeifer            |
+| Pheba              |
+| Philipsburg        |
+| Pico Rivera        |
+| Pierre Part        |
+| Pine Bluff         |
+| Pine City          |
+| Pleasant Grove     |
+| Pocahontas         |
+| Pomona             |
+| Pomona Park        |
+| Pony               |
+| Portland           |
+| Prairie Du Rocher  |
+| Prescott           |
+| Prince Frederick   |
+| Quinter            |
+| Randall            |
+| Rantoul            |
+| Ravenden Springs   |
+| Ravenna            |
+| Raymondville       |
+| Reasnor            |
+| Reeds              |
+| Reeves             |
+| Regina             |
+| Renville           |
+| Republic           |
+| Richland           |
+| Richmond           |
+| Richmond Hill      |
+| Ridgway            |
+| Rio Oso            |
+| Rives Junction     |
+| Robertsdale        |
+| Rocheport          |
+| Rockton            |
+| Rogers             |
+| Roselawn           |
+| Rosie              |
+| Round Pond         |
+| Roy                |
+| Rumsey             |
+| Rydal              |
+| Saint Elmo         |
+| Saint Paul         |
+| Saint Petersburg   |
+| Salem              |
+| Samantha           |
+| San Simeon         |
+| Sandborn           |
+| Sanders            |
+| Sandy Hook         |
+| Schleswig          |
+| Scotts Valley      |
+| Seaton             |
+| Sedgwick           |
+| Seward             |
+| Shasta             |
+| Sherrill           |
+| Shingletown        |
+| Showell            |
+| Shreveport         |
+| Siler              |
+| Siloam             |
+| Sizerock           |
+| Skanee             |
+| Slidell            |
+| Soldier            |
+| South Britain      |
+| South Carrollton   |
+| South El Monte     |
+| South Haven        |
+| Southport          |
+| Springerville      |
+| Strasburg          |
+| Strawn             |
+| Sturdivant         |
+| Sturgis            |
+| Susanville         |
+| Taft               |
+| Talbert            |
+| Tamms              |
+| Tarzana            |
+| Tefft              |
+| Tennessee          |
+| Tina               |
+| Tipton             |
+| Turner             |
+| Turners Falls      |
+| Tyler              |
+| Udall              |
+| Ukiah              |
+| Union Star         |
+| Veedersburg        |
+| Verona             |
+| Vulcan             |
+| Waipahu            |
+| Walnut             |
+| Waresboro          |
+| Watkins            |
+| Weldon             |
+| Weldona            |
+| Wellington         |
+| West Baden Springs |
+| West Grove         |
+| West Hills         |
+| West Hyannisport   |
+| West Somerset      |
+| Westphalia         |
+| White Horse  Beach |
+| Whitewater         |
+| Wickliffe          |
+| Wildie             |
+| Williams           |
+| Wilton             |
+| Winchester         |
+| Windom             |
+| Winslow            |
+| Winsted            |
+| Winter Park        |
+| Woodbury           |
+| Woodsboro          |
+| Woodstock Valley   |
+| Yalaha             |
+| Yazoo City         |
+| Yellow Pine        |
+| Yellville          |
+| Yoder              |
+| Yuma               |
+| Zachary            |
+| Zionsville         |
++--------------------+
+457 rows in set (0.00 sec)
+
+>select distinct city from stationdata where city regexp '^[^aeiou]' and city regexp '[^aeiou]$' order by city asc;
++--------------------+
+| city               |
++--------------------+
+| Baker              |
+| Baldwin            |
+| Bass Harbor        |
+| Beaufort           |
+| Beaver Island      |
+| Benedict           |
+| Bennington         |
+| Berryton           |
+| Beverly            |
+| Bison              |
+| Blue River         |
+| Bowdon             |
+| Bowdon Junction    |
+| Bridgeport         |
+| Bridgton           |
+| Brighton           |
+| Brilliant          |
+| Bristol            |
+| Brownstown         |
+| Buffalo Creek      |
+| Bullhead City      |
+| Busby              |
+| Byron              |
+| Calhoun            |
+| Cannonsburg        |
+| Canton             |
+| Carlock            |
+| Carlos             |
+| Carver             |
+| Centertown         |
+| Channing           |
+| Cherry             |
+| Chester            |
+| Cheswold           |
+| Chignik Lagoon     |
+| Childs             |
+| Church Creek       |
+| Clancy             |
+| Clarkston          |
+| Clifton            |
+| Climax             |
+| Clipper Mills      |
+| Clopton            |
+| Clovis             |
+| Clutier            |
+| Coalgood           |
+| Coaling            |
+| Cobalt             |
+| Coldwater          |
+| Columbus           |
+| Compton            |
+| Corcoran           |
+| Cowgill            |
+| Cranks             |
+| Crescent City      |
+| Cromwell           |
+| Culdesac           |
+| Decatur            |
+| Deep River         |
+| Deerfield          |
+| Del Mar            |
+| Delavan            |
+| Delray Beach       |
+| Dent               |
+| Dryden             |
+| Ducor              |
+| Dumont             |
+| Fairview           |
+| Farmington         |
+| Firebrick          |
+| Five Points        |
+| Flowood            |
+| Forest             |
+| Forest Lakes       |
+| Fort Atkinson      |
+| Fort Lupton        |
+| Frankfort Heights  |
+| Franklin           |
+| Fredericksburg     |
+| Fredericktown      |
+| Freeport           |
+| Fremont            |
+| Fulton             |
+| Gales Ferry        |
+| Garden City        |
+| Garland            |
+| Gatewood           |
+| Glen Carbon        |
+| Goodman            |
+| Gorham             |
+| Graettinger        |
+| Granger            |
+| Greens Fork        |
+| Greenview          |
+| Greenway           |
+| Gridley            |
+| Griffin            |
+| Grimes             |
+| Groveoak           |
+| Hackleburg         |
+| Hampden            |
+| Hanna City         |
+| Hanscom Afb        |
+| Harbor Springs     |
+| Harmony            |
+| Hartland           |
+| Haubstadt          |
+| Haverhill          |
+| Hawarden           |
+| Hayfork            |
+| Hazlehurst         |
+| Healdsburg         |
+| Henderson          |
+| Heyburn            |
+| Highwood           |
+| Hills              |
+| Hoffman Estates    |
+| Holbrook           |
+| Hoskinston         |
+| Hotchkiss          |
+| Humeston           |
+| Hyde Park          |
+| Jack               |
+| Jackson            |
+| Jemison            |
+| Jolon              |
+| Jordan             |
+| Julian             |
+| Kell               |
+| Kenner             |
+| Kensett            |
+| Keyes              |
+| Kingsland          |
+| Kirk               |
+| Kirkland           |
+| Kismet             |
+| Kissee Mills       |
+| Knob Lick          |
+| Knobel             |
+| Koleen             |
+| Lapeer             |
+| Larkspur           |
+| Leavenworth        |
+| Ledyard            |
+| Lee Center         |
+| Libertytown        |
+| Linden             |
+| Lindsay            |
+| Linthicum Heights  |
+| Little Rock        |
+| Loma Mar           |
+| Lucerne Valley     |
+| Ludington          |
+| Ludlow             |
+| Lupton             |
+| Macy               |
+| Madden             |
+| Manchester         |
+| Many               |
+| Marion Junction    |
+| Mc Henry           |
+| Mcbrides           |
+| Mccomb             |
+| Mechanic Falls     |
+| Melber             |
+| Mesick             |
+| Midpines           |
+| Mineral Point      |
+| Montgomery City    |
+| Montreal           |
+| Monument           |
+| Mullan             |
+| Napoleon           |
+| Negreet            |
+| Neon               |
+| New Century        |
+| New Liberty        |
+| New Ross           |
+| Newark             |
+| Newbury            |
+| Newton Center      |
+| Norphlet           |
+| Norris             |
+| Norris City        |
+| North Berwick      |
+| North Branford     |
+| North Middletown   |
+| North Monmouth     |
+| Northfield         |
+| Norvell            |
+| Norway             |
+| Norwood            |
+| Novinger           |
+| Nubieber           |
+| Palm Desert        |
+| Panther Burn       |
+| Paron              |
+| Patriot            |
+| Pattonsburg        |
+| Payson             |
+| Peabody            |
+| Peachtree City     |
+| Peaks Island       |
+| Pengilly           |
+| Pfeifer            |
+| Philipsburg        |
+| Pierre Part        |
+| Pine Bluff         |
+| Pine City          |
+| Pocahontas         |
+| Pomona Park        |
+| Pony               |
+| Portland           |
+| Prairie Du Rocher  |
+| Prescott           |
+| Prince Frederick   |
+| Quinter            |
+| Randall            |
+| Rantoul            |
+| Ravenden Springs   |
+| Reasnor            |
+| Reeds              |
+| Reeves             |
+| Republic           |
+| Richland           |
+| Richmond           |
+| Richmond Hill      |
+| Ridgway            |
+| Rives Junction     |
+| Rocheport          |
+| Rockton            |
+| Rogers             |
+| Roselawn           |
+| Round Pond         |
+| Roy                |
+| Rumsey             |
+| Rydal              |
+| Saint Paul         |
+| Saint Petersburg   |
+| Salem              |
+| San Simeon         |
+| Sandborn           |
+| Sanders            |
+| Sandy Hook         |
+| Schleswig          |
+| Scotts Valley      |
+| Seaton             |
+| Sedgwick           |
+| Seward             |
+| Sherrill           |
+| Shingletown        |
+| Showell            |
+| Shreveport         |
+| Siler              |
+| Siloam             |
+| Sizerock           |
+| Slidell            |
+| Soldier            |
+| South Britain      |
+| South Carrollton   |
+| South Haven        |
+| Southport          |
+| Strasburg          |
+| Strawn             |
+| Sturdivant         |
+| Sturgis            |
+| Taft               |
+| Talbert            |
+| Tamms              |
+| Tefft              |
+| Tipton             |
+| Turner             |
+| Turners Falls      |
+| Tyler              |
+| Veedersburg        |
+| Vulcan             |
+| Walnut             |
+| Watkins            |
+| Weldon             |
+| Wellington         |
+| West Baden Springs |
+| West Hills         |
+| West Hyannisport   |
+| West Somerset      |
+| White Horse  Beach |
+| Whitewater         |
+| Williams           |
+| Wilton             |
+| Winchester         |
+| Windom             |
+| Winslow            |
+| Winsted            |
+| Winter Park        |
+| Woodbury           |
+| Woodstock Valley   |
+| Yazoo City         |
+| Yoder              |
+| Zachary            |
++--------------------+
+298 rows in set (0.00 sec)
+
+>select p.product_id,p.product_name from Product p join Sales s on p.product_id = s.product_id 
+group by s.product_id having max(sale_date) <= '2019-03-31' and min(sale_date) >='2019-01-01'
+Input
+Product =
+| product_id | product_name | unit_price |
+| ---------- | ------------ | ---------- |
+| 1          | S8           | 1000       |
+| 2          | G4           | 800        |
+| 3          | iPhone       | 1400       |
+Sales =
+| seller_id | product_id | buyer_id | sale_date  | quantity | price |
+| --------- | ---------- | -------- | ---------- | -------- | ----- |
+| 1         | 1          | 1        | 2019-01-21 | 2        | 2000  |
+| 1         | 2          | 2        | 2019-02-17 | 1        | 800   |
+| 2         | 2          | 3        | 2019-06-02 | 1        | 800   |
+| 3         | 3          | 4        | 2019-05-13 | 2        | 2800  |
+Output
+| product_id | product_name |
+| ---------- | ------------ |
+| 1          | S8           |
+
+>select distinct author_id as id from Views where author_id = viewer_id order by author_id asc;
+Input
+Views =
+| article_id | author_id | viewer_id | view_date  |
+| ---------- | --------- | --------- | ---------- |
+| 1          | 3         | 5         | 2019-08-01 |
+| 1          | 3         | 6         | 2019-08-02 |
+| 2          | 7         | 7         | 2019-08-01 |
+| 2          | 7         | 6         | 2019-08-02 |
+| 4          | 7         | 1         | 2019-07-22 |
+| 3          | 4         | 4         | 2019-07-21 |
+| 3          | 4         | 4         | 2019-07-21 |
+Output
+| id |
+| -- |
+| 4  |
+| 7  |
+
+>select round(((select count(customer_id) from delivery where order_date = customer_pref_delivery_date)/count(*))*100,2) as immediate_percentage from delivery;
++----------------------+
+| immediate_percentage |
++----------------------+
+|                33.33 |
++----------------------+
+1 row in set (0.00 sec)
+
 >
+
+
