@@ -2427,6 +2427,7 @@ Records: 83  Deleted: 0  Skipped: 0  Warnings: 1
 +--------------------+
 457 rows in set (0.00 sec)
 
+Q16.
 >select distinct city from stationdata where city regexp '^[^aeiou]' and city regexp '[^aeiou]$' order by city asc;
 +--------------------+
 | city               |
@@ -2732,6 +2733,7 @@ Records: 83  Deleted: 0  Skipped: 0  Warnings: 1
 +--------------------+
 298 rows in set (0.00 sec)
 
+Q17.
 >select p.product_id,p.product_name from Product p join Sales s on p.product_id = s.product_id 
 group by s.product_id having max(sale_date) <= '2019-03-31' and min(sale_date) >='2019-01-01'
 Input
@@ -2753,6 +2755,7 @@ Output
 | ---------- | ------------ |
 | 1          | S8           |
 
+Q18.
 >select distinct author_id as id from Views where author_id = viewer_id order by author_id asc;
 Input
 Views =
@@ -2771,6 +2774,7 @@ Output
 | 4  |
 | 7  |
 
+Q19.
 >select round(((select count(customer_id) from delivery where order_date = customer_pref_delivery_date)/count(*))*100,2) as immediate_percentage from delivery;
 +----------------------+
 | immediate_percentage |
@@ -2791,6 +2795,55 @@ Q20.
 +-------+-------+
 4 rows in set, 2 warnings (0.00 sec)
 
+Q21.
+> select employee_id,count(team_id) over (partition by team_id) as team_size from employee order by employee_id;
++-------------+-----------+
+| employee_id | team_size |
++-------------+-----------+
+|           1 |         3 |
+|           2 |         3 |
+|           3 |         3 |
+|           4 |         1 |
+|           5 |         2 |
+|           6 |         2 |
++-------------+-----------+
+6 rows in set (0.00 sec)
+
+Q22.
+> select c.country_name,case when avg(w.weather_state) <= 15 then 'Cold' when avg(w.weather_state) >=25 then 'Hot' else 'Warm' end as weather_type from countries as c join weather as w on c.country_id = w.country_id where month(w.day) = 11 and year(w.day) = 2019 group by c.country_name order by c.country_name;
++--------------+--------------+
+| country_name | weather_type |
++--------------+--------------+
+| Australia    | Cold         |
+| China        | Warm         |
+| Morocco      | Hot          |
+| Peru         | Hot          |
+| USA          | Cold         |
++--------------+--------------+
+5 rows in set (0.00 sec)
+
+Q23.
+>select p.product_id,round(sum(p.price*u.units)/sum(u.units),2) as average_price from prices as p left join unitssold as u on p.product_id = u.product_id where u.purchase_date >=p.start_date and u.purchase_date <=p.end_date group by p.product_id;
++------------+---------------+
+| product_id | average_price |
++------------+---------------+
+|          1 |          6.96 |
+|          2 |         16.96 |
++------------+---------------+
+2 rows in set (0.00 sec)
+
+Q24.
+> select player_id,min(event_date) as first_login from activity group by player_id;
++-----------+-------------+
+| player_id | first_login |
++-----------+-------------+
+|         1 | 2016-03-01  |
+|         2 | 2017-06-25  |
+|         3 | 2016-03-02  |
++-----------+-------------+
+3 rows in set (0.00 sec)
+
+Q25.
 >
 
 
